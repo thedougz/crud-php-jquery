@@ -1,0 +1,12 @@
+RewriteEngine on
+Options All -Indexes
+
+RewriteRule ^details/([a-zA-Z0-9-/]+)$ details.php?id=$1 [QSA,L,NC]
+RewriteRule ^update/([a-zA-Z0-9-/]+)$ update.php?id=$1 [QSA,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^(.*)$ $1.php [QSA,L,NC]
+
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.thedougz.com/$1
